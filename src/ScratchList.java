@@ -44,6 +44,7 @@ public class ScratchLinked<T>{
             head = new Node<T>(data);
             //reconnect new head to old list
             head.next = temp;
+            length++;
             return;
         }
 
@@ -65,6 +66,7 @@ public class ScratchLinked<T>{
         prev.next = new Node<T>(data);
         //connect to original next node
         prev.next.next = temp;
+        length++;
 
     }
 
@@ -134,15 +136,38 @@ public class ScratchLinked<T>{
 
     }
 
+    //clear entire linked list
     public void clear(){
-
+        head = null;
+        length = 0;
     }
 
-    public void empty() {
-
+    //checks if list is empty
+    public boolean empty() {
+        //check if head node points to null
+        if (head == null){
+            return true;
+        }
+        return false;
     }
 
-    public void length(){
+    //returns length of linked list
+    public int length(){return this.length;}
 
+    //to display linked list
+    public String toString(){
+        String S = "{ ";
+        node<T> x = head;
+        if (x == null){
+            return S + " }";
+        }
+
+        while (x.next != null){
+            S += String.valueOf(x.data) + " -> ";
+            x = x.next;
+        }
+
+        S += String.valueOf(x.data);
+        return S + " } ";
     }
 }
