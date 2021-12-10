@@ -31,7 +31,7 @@ public class ScratchLinked<T>{
 
     //Add node at given position
     public void add(int position, T data){
-        if (position > length){
+        if (position > length + 1){
             System.out.println("Position unavailable in linked list");
             return;
         }
@@ -68,7 +68,52 @@ public class ScratchLinked<T>{
 
     }
 
-    public void remove(){
+    //to remove a node from the list
+    public void remove(T key){
+        //dummy node with null value
+        Node<T> prev = new Node<T>(null);
+
+        //dummy node pointing to the head Node
+        prev.next = head;
+
+        //next node points ahead of current Node
+        Node<T> next = head.next;
+
+        //Temporary node for traversal
+        Node<T> temp = head;
+
+        //Check whether node to be deleted exists or not
+        boolean exists = false;
+
+        //check if head node needs to be deleted
+        if(head.data == key){
+            head = head.next;
+            //node to be deleted exists
+            exists = true;
+        }
+
+        //iterate over linked list
+        while (temp.next != null){
+            //convert value to be compared using strings
+            //using String1.equals(String2) method
+
+            //comparing value of key and data 
+            if (String.valueOf(temp.data).equals(String.valueOf(key))){
+                //if node to be deleted is found, previous node now points to
+                //next node skipping the current Node
+                prev.next = next;
+                exists = true;
+            }
+
+            //previous node now points to current one
+            prev = temp;
+
+            //Current node points to next Node
+            temp = temp.next;
+
+            //next node ponits to node ahead of current
+            next = temp.next;
+        }
 
     }
 
