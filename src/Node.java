@@ -2,8 +2,8 @@ package ScratchLinked;
 
 public class Node<T>{
 
-    private T data;
-    private Node<t> next;
+    T data;
+    Node<t> next;
 
     public Node(T data){
         this.data = data;
