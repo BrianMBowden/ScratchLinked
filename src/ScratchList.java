@@ -103,6 +103,9 @@ public class ScratchLinked<T>{
                 //next node skipping the current Node
                 prev.next = next;
                 exists = true;
+
+                //if we find the node to be deleted, break the loop
+                break;
             }
 
             //previous node now points to current one
@@ -113,6 +116,20 @@ public class ScratchLinked<T>{
 
             //next node ponits to node ahead of current
             next = temp.next;
+
+        }
+        //check the last node
+        if (!exists && String.valueOf(temp.data).equals(String.valueOf(key))){
+            prev.next = null;
+            exists = true;
+        }
+
+        //if node to be deleted exist
+        if(exists){
+            length--;
+        }
+        else{
+            System.out.println("Key does not exist in linked list");
         }
 
     }
