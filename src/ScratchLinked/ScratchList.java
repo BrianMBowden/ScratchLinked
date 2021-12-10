@@ -1,14 +1,14 @@
 package ScratchLinked;
 import java.io.*;
 
-public class ScratchLinked<T>{
+public class ScratchList<T>{
 
 
     Node<T> head; 
 
     private int length = 0;
 
-    ScratchLinked() {this.head = null;}
+    ScratchList() {this.head = null;}
 
     //Add node at end of the list
     public void add(T data){
@@ -20,7 +20,7 @@ public class ScratchLinked<T>{
         }
         //if the list does exist, add to end
         else {
-            node<T> x = head;
+            Node<T> x = head;
             while (x.next != null){
                 x = x.next;
             }
@@ -157,7 +157,7 @@ public class ScratchLinked<T>{
     //to display linked list
     public String toString(){
         String S = "{ ";
-        node<T> x = head;
+        Node<T> x = head;
         if (x == null){
             return S + " }";
         }
