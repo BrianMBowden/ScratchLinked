@@ -3,7 +3,7 @@ package ScratchLinked;
 public class Node<T>{
 
     T data;
-    Node<t> next;
+    Node<T> next;
 
     public Node(T data){
         this.data = data;

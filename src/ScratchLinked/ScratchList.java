@@ -1,5 +1,4 @@
 package ScratchLinked;
-import java.io.*;
 
 public class ScratchList<T>{
 
